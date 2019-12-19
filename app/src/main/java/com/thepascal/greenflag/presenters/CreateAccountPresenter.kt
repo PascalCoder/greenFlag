@@ -1,5 +1,6 @@
 package com.thepascal.greenflag.presenters
 
+import androidx.annotation.VisibleForTesting
 import com.thepascal.greenflag.FormValidation
 import com.thepascal.greenflag.FormValidation.Companion.validateAccountCreationFirstForm
 import com.thepascal.greenflag.R
@@ -11,7 +12,7 @@ class CreateAccountPresenter(
     private val userRepositoryContract: UserRepositoryContract?
 ) : CreateAccountPresenterContract {
 
-    private var errors = mutableListOf<FormValidation.FormErrors>()
+    var errors = mutableListOf<FormValidation.FormErrors>()
 
     override fun doFormValidation(email: String, password: String, passwordRepeat: String) {
         errors = validateAccountCreationFirstForm(email, password, passwordRepeat)

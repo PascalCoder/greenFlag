@@ -20,7 +20,7 @@ fun showDatePickerDialog(context: Context, listener: DatePickerDialog.OnDateSetL
     datePickerDialog.show()
 }
 
-fun encrypt(password: String?): HashMap<String, ByteArray> {
+fun encrypt(password: String): HashMap<String, ByteArray> {
     val map = HashMap<String, ByteArray>()
 
     try {
@@ -34,7 +34,7 @@ fun encrypt(password: String?): HashMap<String, ByteArray> {
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
         cipher.init(Cipher.ENCRYPT_MODE, secretKey)
         val ivBytes: ByteArray = cipher.iv
-        val encryptedBytes = cipher.doFinal(password?.toByteArray(Charsets.UTF_8))
+        val encryptedBytes = cipher.doFinal(password.toByteArray()) //Charsets.UTF_8
 
         map["iv"] = ivBytes
         map["encrypted"] = encryptedBytes

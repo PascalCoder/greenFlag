@@ -3,7 +3,7 @@ package com.thepascal.greenflag
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class HelpersTest {
+class ValidationHelpersTest {
 
     @Test
     fun `test isEmailValid with blank email`() {
