@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">greenFlag</string>
+    <string name="log_in">Log In</string>
+    <string name="greenflag_logo">GreenFlag logo</string>
+    <string name="main_header">GreenFlag customers can create an account to access</string>
+    <string name="check_mark">Check mark</string>
+    <string name="car_health_update">Car health update</string>
+    <string name="request_a_rescue_online">Request a rescue online</string>
+    <string name="policy_information">Policy information</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="create_an_account_header">Create an account</string>
+    <string name="back_arrow">Back arrow</string>
+    <string name="email_address">Email address</string>
+    <string name="create_password">Create password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="password_criteria_hint">See criteria below</string>
+    <string name="password_criteria">
+        Your password should have a minimum of 8 characters and contain at least one
+        number, one upper case and one lower case letter. You can use special characters.
+    </string>
+    <string name="next">Next</string>
+    <string name="user_s_picture">User\'s picture</string>
+    <string name="name_hint">Name</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="age_hint">Age</string>
+    <string name="choose_birth_date">Choose Birth Date</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="gender_label">Gender</string>
+    <string name="male_tag">Male</string>
+    <string name="female_tag">Female</string>
+    <string name="postal_address_hint">Postal Address (Opt)</string>
+    <string name="save_btn">Save</string>
+
+    <string-array name="countries">
+        <item>Choose Country</item>
+        <item>United States</item>
+        <item>Ivory Coast</item>
+        <item>Ghana</item>
+        <item>Nigeria</item>
+        <item>India</item>
+        <item>Canada</item>
+        <item>Mexico</item>
+    </string-array>
+
+    <string name="form_error_email_already_exists">An account already exists for this email address.</string>
+    <string name="form_error_email_invalid">The email you entered is invalid.</string>
+    <string name="form_error_password_invalid">The password you entered is not valid.</string>
+    <string name="form_error_passwords_error">Your passwords do not match.</string>
+    <string name="form_error_blank_name">Please enter your name.</string>
+    <string name="form_error_blank_username">Please provide a username.</string>
+    <string name="form_error_invalid_username">Please enter a valid username. Username should be at least 4 characters
+        long.
+    </string>
+    <string name="form_error_blank_dob">Please click on the button above and select your date of birth.</string>
+    <string name="form_error_blank_country">Please select your country.</string>
+    <string name="login_header_text">Welcome! Please enter your credentials to log in to the app!</string>
+    <string name="login_email_hint">Enter Email</string>
+    <string name="login_password_hint">Enter Password</string>
+
+    <string name="login_form_email_empty_error">Please provide an email.</string>
+    <string name="login_form_email_invalid_error">The email you entered is invalid.</string>
+    <string name="login_form_password_empty_error">Please enter your password.</string>
+    <string name="login_auth_error">"Something went wrong! User not found!"</string>
+    <string name="log_out">Log out</string>
+    <string name="home_header_tag">Hello %s</string>
+    <string name="home_email_tag">Email: %s</string>
+    <string name="home_username_tag">Username: %s</string>
+    <string name="home_date_of_birth_tag">Date of Birth: %s</string>
+    <string name="home_country_tag">Country: %s</string>
+    <string name="home_gender_tag">Gender: %s</string>
+    <string name="home_address_tag">Address: %s</string>
+</resources>

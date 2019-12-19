@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.HomeActivity">
+
+    <TextView
+        android:id="@+id/homeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        tools:text="Hello Tester Tate"/>
+
+    <TextView
+        android:id="@+id/homeEmailTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/homeHeader"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        tools:text="Email: tester1@tester.com"/>
+
+    <TextView
+        android:id="@+id/homeUsernameTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/homeEmailTag"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        tools:text="Username: Tester1"/>
+
+    <TextView
+        android:id="@+id/homeBirthDateTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/homeUsernameTag"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        tools:text="Date of Birth: 12/17/2019"/>
+
+    <TextView
+        android:id="@+id/homeCountryTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/homeBirthDateTag"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        tools:text="Country: United States"/>
+
+    <TextView
+        android:id="@+id/homeGenderTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/homeCountryTag"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        tools:text="Gender: Male"/>
+
+    <TextView
+        android:id="@+id/homeAddressTag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/homeGenderTag"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        app:layout_constraintEnd_toStartOf="@id/homeGuidelineRight"
+        tools:text="Address: 2301 Ferentz Trce, Norcross, GA 30071"/>
+
+    <ImageView
+        android:id="@+id/homePhoto"
+        android:contentDescription="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/homeAddressTag"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        app:layout_constraintEnd_toStartOf="@id/homeGuidelineRight"
+        tools:src="@drawable/img_holder"/>
+
+    <Button
+        android:id="@+id/homeLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:background="#FFC107"
+        app:layout_constraintStart_toEndOf="@id/homeGuidelineLeft"
+        app:layout_constraintEnd_toStartOf="@id/homeGuidelineRight"
+        app:layout_constraintTop_toBottomOf="@id/homePhoto"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/homeGuidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/homeGuidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

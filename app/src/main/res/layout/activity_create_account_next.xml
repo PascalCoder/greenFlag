@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".views.CreateAccountNextActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createAccountNextName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:background="@android:color/white"
+            android:nextFocusDown="@id/createAccountNextUsername"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toStartOf="@id/createAccountNextPicture"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="0.6">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/name_hint"
+                android:inputType="textPersonName"
+                android:background="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/createAccountNextPicture"
+            android:contentDescription="@string/user_s_picture"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_holder"
+            app:layout_constraintTop_toTopOf="@id/createAccountNextName"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextName"
+            app:layout_constraintEnd_toStartOf="@id/createAccountNextGuidelineRight"
+            app:layout_constraintHorizontal_weight="0.4"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createAccountNextUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextName"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/username_hint"
+                android:inputType="text"
+                android:background="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createAccountNextPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:nextFocusDown="@id/createAccountNextChangePhotoButton"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextUsername"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/password_hint"
+                android:inputType="textPassword"
+                android:background="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <Button
+            android:id="@+id/createAccountNextChangePhotoButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/change_photo"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:background="@drawable/gradient_button_background"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextUsername"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName"/>
+
+        <Button
+            android:id="@+id/createAccountNextDatePickerButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/choose_birth_date"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:background="@drawable/gradient_button_background"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextChangePhotoButton"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName"/>
+
+        <TextView
+            android:id="@+id/createAccountNextBirthDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="12dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="14dp"
+            android:text="@string/birth_date"
+            android:textSize="18sp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextDatePickerButton"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName"/>
+
+        <TextView
+            android:id="@+id/createAccountNextBirthDateError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/holo_red_light"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextBirthDate"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName"
+            tools:text="@string/form_error_blank_dob"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/createAccountNextCountrySpinner"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextBirthDateError"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName">
+
+        </androidx.appcompat.widget.AppCompatSpinner>
+
+        <TextView
+            android:id="@+id/createAccountNextCountryError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/holo_red_light"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextCountrySpinner"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName"
+            tools:text="@string/form_error_blank_dob"/>
+
+        <TextView
+            android:id="@+id/createAccountNextGenderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/createAccountNextGender"
+            android:text="@string/gender_label"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextCountryError"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"/>
+
+        <RadioGroup
+            android:id="@+id/createAccountNextGender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextGenderLabel"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/createAccountNextGenderMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="@android:color/white"
+                android:text="@string/male_tag"
+                android:checked="true"
+                android:buttonTint="@color/colorAccent"
+                android:onClick="checkRadioButton"
+                app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+                app:layout_constraintEnd_toEndOf="@id/createAccountNextName"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/createAccountNextGenderFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/female_tag"
+                android:checked="false"
+                android:buttonTint="@color/colorAccent"
+                android:onClick="checkRadioButton"
+                app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+                app:layout_constraintEnd_toEndOf="@id/createAccountNextName"/>
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createAccountNextAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/createAccountNextGender"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextGuidelineLeft"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/postal_address_hint"
+                android:inputType="textPostalAddress"
+                android:background="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/createAccountNextSaveButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/save_btn"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:background="@drawable/gradient_button_background"
+            app:layout_constraintTop_toTopOf="@id/createAccountNextAddress"
+            app:layout_constraintBottom_toBottomOf="@id/createAccountNextAddress"
+            app:layout_constraintStart_toEndOf="@id/createAccountNextAddress"
+            app:layout_constraintEnd_toEndOf="@id/createAccountNextGuidelineRight"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/createAccountNextGuidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="10dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/createAccountNextGuidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="10dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
