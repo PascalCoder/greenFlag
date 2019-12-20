@@ -12,7 +12,7 @@ class CreateAccountNextPresenter(
     private val userRepositoryContract: UserRepositoryContract?
 ) : CreateAccountNextPresenterContract {
 
-    private var errors = mutableListOf<FormValidation.FormErrors>()
+    var errors = mutableListOf<FormValidation.FormErrors>()
 
     override fun doFormValidation(name: String, username: String, dateOfBirth: String, country: String) {
         errors = validateAccountCreationSecondForm(name, username, dateOfBirth, country)
