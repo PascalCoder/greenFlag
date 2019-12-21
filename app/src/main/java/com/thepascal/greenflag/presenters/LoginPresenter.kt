@@ -12,7 +12,7 @@ class LoginPresenter(
     private val userRepositoryContract: UserRepositoryContract?
 ) : LoginPresenterContract {
 
-    private var errors = mutableListOf<FormValidation.FormErrors>()
+    var errors = mutableListOf<FormValidation.FormErrors>()
 
     override fun doFormValidation(email: String, password: String) {
         errors = validateLoginForm(email, password)
