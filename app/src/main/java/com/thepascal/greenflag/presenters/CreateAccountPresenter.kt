@@ -1,6 +1,5 @@
 package com.thepascal.greenflag.presenters
 
-import androidx.annotation.VisibleForTesting
 import com.thepascal.greenflag.FormValidation
 import com.thepascal.greenflag.FormValidation.Companion.validateAccountCreationFirstForm
 import com.thepascal.greenflag.R
@@ -18,11 +17,36 @@ class CreateAccountPresenter(
         errors = validateAccountCreationFirstForm(email, password, passwordRepeat)
         if (errors.isEmpty()) {
             //check if user exists
-            if (checkIfUserExists(email)) {
+            if (userRepositoryContract?.doesUserExist(email)!!) {
                 errors.add(FormValidation.FormErrors.EmailAlreadyExists)
             } else {
                 createAccountContract?.onValidationSuccess(email, password)
             }
+
+            /*val disposableSingleObserver: DisposableSingleObserver<Boolean>? =
+                userRepositoryContract?.doesUserExistReactively(email)
+                    ?.subscribeOn(Schedulers.io())
+                    ?.observeOn(mainScheduler)
+                    ?.subscribeWith(object : DisposableSingleObserver<Boolean>() {
+                        override fun onSuccess(t: Boolean) {
+                            if (t) {
+                                errors.add(FormValidation.FormErrors.EmailAlreadyExists)
+                            } else {
+                                createAccountContract?.onValidationSuccess(email, password)
+                            }
+                        }
+
+                        override fun onError(e: Throwable) {
+                            e.message?.let {
+                                //createAccountContract?.onValidationError(it)
+                            }
+                        }
+
+                    })
+
+            disposableSingleObserver?.let {
+                compositeDisposable.add(disposableSingleObserver)
+            }*/
         }
         presentFormErrors()
 
@@ -54,11 +78,11 @@ class CreateAccountPresenter(
         createAccountContract?.onValidationFailure(createAccountFirstPageErrorEntity)
     }
 
-    override fun checkIfUserExists(email: String): Boolean {
+    /*override fun checkIfUserExists(email: String): Boolean {
         var userExists = false
         userRepositoryContract?.let {
             userExists = userRepositoryContract.doesUserExist(email)
         }
         return userExists
-    }
+    }*/
 }

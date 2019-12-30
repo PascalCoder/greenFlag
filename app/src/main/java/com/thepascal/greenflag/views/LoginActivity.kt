@@ -10,6 +10,7 @@ import com.thepascal.greenflag.presenters.LoginPresenterContract
 import com.thepascal.greenflag.repository.UserRepository
 import com.thepascal.greenflag.router.Router
 import com.thepascal.greenflag.router.RouterImpl
+import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), LoginContract {
@@ -21,7 +22,7 @@ class LoginActivity : AppCompatActivity(), LoginContract {
     private lateinit var userRepository: UserRepository
     private lateinit var loginPresenter: LoginPresenterContract
 
-    lateinit var sessionManager: SessionManager
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +38,7 @@ class LoginActivity : AppCompatActivity(), LoginContract {
         }
 
         userRepository = UserRepository(applicationContext)
-        loginPresenter = LoginPresenter(this, userRepository)
+        loginPresenter = LoginPresenter(this, userRepository, AndroidSchedulers.mainThread())
 
         loginButton.setOnClickListener {
             loginPresenter.doFormValidation(
@@ -45,6 +46,11 @@ class LoginActivity : AppCompatActivity(), LoginContract {
                 loginPassword.editText?.text.toString()
             )
         }
+    }
+
+    override fun onStop() {
+        loginPresenter.unsubscribe()
+        super.onStop()
     }
 
     override fun onDestroy() {
@@ -69,5 +75,9 @@ class LoginActivity : AppCompatActivity(), LoginContract {
 
     override fun onAuthenticationFailure(error: Int) {
         loginAuthError.displayErrorIfAny(error)
+    }
+
+    override fun onAuthenticationFailure(errorMsg: String) {
+        loginAuthError.text = errorMsg
     }
 }

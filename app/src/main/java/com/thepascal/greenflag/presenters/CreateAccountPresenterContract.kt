@@ -4,5 +4,5 @@ interface CreateAccountPresenterContract {
 
     fun doFormValidation(email: String, password: String, passwordRepeat: String)
     fun presentFormErrors()
-    fun checkIfUserExists(email: String): Boolean
+    //fun checkIfUserExists(email: String): Boolean
 }

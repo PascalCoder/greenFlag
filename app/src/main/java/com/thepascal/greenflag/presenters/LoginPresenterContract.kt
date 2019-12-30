@@ -6,5 +6,6 @@ interface LoginPresenterContract {
 
     fun doFormValidation(email: String, password: String)
     fun presentFormErrors()
-    fun searchUser(email: String, password: String): MutableList<User>?
+    fun unsubscribe()
+    //fun searchUser(email: String, password: String): MutableList<User>?
 }

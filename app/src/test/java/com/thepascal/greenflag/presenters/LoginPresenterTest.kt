@@ -5,6 +5,9 @@ import com.thepascal.greenflag.R
 import com.thepascal.greenflag.models.User
 import com.thepascal.greenflag.repository.UserRepository
 import com.thepascal.greenflag.views.LoginContract
+import io.reactivex.Single
+import io.reactivex.plugins.RxJavaPlugins
+import io.reactivex.schedulers.Schedulers
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -50,16 +53,21 @@ class LoginPresenterTest {
 
     @Before
     fun setUp() {
-        presenter = LoginPresenter(loginContract, repository)
+        presenter = LoginPresenter(loginContract, repository, Schedulers.trampoline())
+        RxJavaPlugins.setIoSchedulerHandler {
+            Schedulers.trampoline()
+        }
     }
 
     @After
     fun tearDown() {
+        RxJavaPlugins.reset()
     }
 
     @Test
     fun `test doFormValidation with valid inputs`() {
-        `when`(repository.findUser(validEmail, validPassword)).thenReturn(mutableListOf(validUser))
+        //`when`(repository.findUser(validEmail, validPassword)).thenReturn(mutableListOf(validUser))
+        `when`(repository.findUserReactively(validEmail, validPassword)).thenReturn(Single.just(mutableListOf(validUser)))
         presenter.doFormValidation(validEmail, validPassword)
 
         verify(loginContract).onAuthenticationFailure(0)
@@ -69,8 +77,10 @@ class LoginPresenterTest {
 
     @Test
     fun `test doFormValidation with valid inputs but no user found`() {
-        `when`(repository.findUser(validEmail, validPassword)).thenReturn(mutableListOf())
+        `when`(repository.findUserReactively(validEmail, validPassword)).thenReturn(Single.just(mutableListOf()))
         presenter.doFormValidation(validEmail, validPassword)
+
+        //Thread.sleep(1000)
 
         verify(loginContract).onAuthenticationFailure(authenticationError)
         verify(loginContract).onLoginFailure(LoginFormErrorEntity())
@@ -96,11 +106,11 @@ class LoginPresenterTest {
         verify(loginContract).onLoginFailure(LoginFormErrorEntity())
     }
 
-    @Test
+    /*@Test
     fun `test searchUser if user exists`() {
         presenter.searchUser(validEmail, validPassword)
         verify(repository).findUser(validEmail, validPassword)
-    }
+    }*/
 
     /*@Test
     fun `test searchUser if user does not exist`() {

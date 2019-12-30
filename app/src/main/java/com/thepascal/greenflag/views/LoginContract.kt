@@ -7,4 +7,5 @@ interface LoginContract {
     fun onLoginSuccess(user: User)
     fun onLoginFailure(loginFormErrorEntity: FormValidation.LoginFormErrorEntity)
     fun onAuthenticationFailure(error: Int)
+    fun onAuthenticationFailure(errorMsg: String)
 }

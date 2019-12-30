@@ -7,8 +7,8 @@ import android.provider.BaseColumns
 import android.util.Log
 import com.thepascal.greenflag.db.UserContract.UsersTable
 import com.thepascal.greenflag.db.UserDBHelper
-import com.thepascal.greenflag.encrypt
 import com.thepascal.greenflag.models.User
+import io.reactivex.Single
 
 class UserRepository(val context: Context): UserRepositoryContract {
 
@@ -44,7 +44,13 @@ class UserRepository(val context: Context): UserRepositoryContract {
         return emailList.size > 0
     }
 
-    override fun findUser(email: String, password: String): MutableList<User> {
+    override fun doesUserExistReactively(email: String): Single<Boolean> {
+        return Single.fromCallable {
+            doesUserExist(email)
+        }
+    }
+
+    fun findUser(email: String, password: String): MutableList<User> {
         /*val dbHelper = UserDBHelper(context)
         val db = dbHelper.writableDatabase*/
 
@@ -99,6 +105,12 @@ class UserRepository(val context: Context): UserRepositoryContract {
         return userList
     }
 
+    override fun findUserReactively(email: String, password: String): Single<MutableList<User>> {
+        return Single.fromCallable {
+            findUser(email, password)
+        }
+    }
+
     override fun saveUser(user: User) {
         //val encryptedPassword = encrypt(user.password)
         val values = ContentValues().apply {
@@ -118,6 +130,13 @@ class UserRepository(val context: Context): UserRepositoryContract {
         Log.i("Inserted Row", "$newRowId")
     }
 
+    override fun saveUserReactively(user: User): Single<User> {
+        return Single.fromCallable {
+            saveUser(user)
+            user
+        }
+    }
+
     override fun updateUser(user: User): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -130,9 +149,9 @@ class UserRepository(val context: Context): UserRepositoryContract {
         Log.i("Deleted Row", "$deletedRows")
     }
 
-    private fun encryptPassword(password: String): String {
+    /*private fun encryptPassword(password: String): String {
         val md5 = "MD5"
 
         return ""
-    }
+    }*/
 }

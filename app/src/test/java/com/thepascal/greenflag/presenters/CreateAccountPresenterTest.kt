@@ -48,6 +48,7 @@ class CreateAccountPresenterTest {
 
     @Test
     fun `test doFormValidation with valid entries`() {
+        Mockito.`when`(repository.doesUserExist(validEmail)).thenReturn(false)
         presenter.doFormValidation(validEmail, validPassword, validPasswordRepeat)
         verify(repository).doesUserExist(validEmail)
         verify(createAccountContract).onValidationSuccess(validEmail, validPassword)
